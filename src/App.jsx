@@ -2,6 +2,7 @@ import { Card } from "./components/Card";
 import { GameHeader } from "./components/GameHeader";
 import { WinMessage } from "./components/WinMessage";
 import { useGameLogic } from "./hooks/useGameLogic";
+import { Analytics } from '@vercel/analytics/react';
 
 const cardValues = [
   "🍎",
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className="app">
+      <Analytics />
       <GameHeader score={score} moves={moves} onReset={initializeGame} />
 
       {isGameComplete && <WinMessage moves={moves} />}
